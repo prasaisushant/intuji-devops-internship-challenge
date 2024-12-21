@@ -18,7 +18,15 @@ The script was made executable using the following command:
 chmod +x ./install_docker_java_jenkins_ngrok.sh
 ```
 
-### 2. Installation Verification
+### 2. Run the  Script 
+
+The script was executed using the following command:
+
+```bash
+./install_docker_java_jenkins_ngrok.sh
+```
+
+### 3. Installation Verification
 
 The installation of Docker, Java, Jenkins, and ngrok was verified.
 
