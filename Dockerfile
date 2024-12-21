@@ -1,33 +1,38 @@
-# Using the official httpd image 
-FROM httpd
+# Stage 1: Build stage
+FROM php:8.2-cli AS builder
 
-# Installalling PHP and required modules
 RUN apt-get update && apt-get install -y \
-    php \
     git \
-    # For processing php secipts
-    libapache2-mod-php \
     curl \
+    unzip \
     && apt-get clean
 
-# Installing Composer 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copying files
-COPY . /usr/local/apache2/htdocs
+WORKDIR /app
 
-# Ensuring Apache has the correct ownership and permissions for the copied file
-RUN chown -R www-data:www-data /usr/local/apache2/htdocs
-RUN chmod -R 755 /usr/local/apache2/htdocs
+COPY composer.json composer.lock ./
 
-# Expose HTTP port
+RUN composer install --prefer-dist --ignore-platform-reqs
+COPY . .
+
+# Stage 2: Production stage
+FROM httpd:2.4
+
+RUN apt-get update && apt-get install -y \
+    php \
+    libapache2-mod-php \
+    && apt-get clean
+
+COPY --from=builder /app /usr/local/apache2/htdocs
+
+RUN chown -R www-data:www-data /usr/local/apache2/htdocs && \
+    chmod -R 755 /usr/local/apache2/htdocs
+
 EXPOSE 80
 
-# Setting the working directory to the Apache document root
 WORKDIR /usr/local/apache2/htdocs/
 
-# Installing dependencies via Composer 
-RUN /usr/local/bin/composer install --prefer-dist --ignore-platform-reqs
-
-# Starting Apache in the foreground to keep the container running
 CMD ["httpd-foreground"]
+
+
