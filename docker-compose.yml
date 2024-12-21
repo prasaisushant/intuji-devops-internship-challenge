@@ -1,0 +1,15 @@
+services:
+  app:
+    image: sushant60/intuji_image:initial  # Make sure this is the correct image
+    container_name: Intuji
+    ports:
+      - "8888:80"
+    volumes:
+      - /home/sushant/php-hello-world/vol:/usr/local/apache2/htdocs/vol
+    networks:
+      - intuji_net
+
+networks:
+  intuji_net:
+    driver: bridge
+
