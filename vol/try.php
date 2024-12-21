@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';  // Adjust path to go up one directory
+require_once __DIR__ . '/../vendor/autoload.php'; 
 
 use Silarhi\Hello;
 
