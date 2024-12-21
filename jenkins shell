@@ -1,0 +1,8 @@
+DOCKER_IMAGE="sushant60/intuji_image"
+BUILD_TAG=${BUILD_NUMBER}
+
+## Making the bash script executable
+chmod +x cd.sh
+
+## Executing the script
+sudo ./cd.sh $DOCKER_IMAGE $BUILD_TAG

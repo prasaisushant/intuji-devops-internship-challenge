@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# php-hello-world 5
+A simple hello-world for composer
+>>>>>>> fe753c0111c26b39653e25a9ae81b3f9d03c8fe6
 
 # DevOps Internship Challenge - README
 
