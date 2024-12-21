@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # DevOps Internship Challenge - README
 
 ## Overview
@@ -218,6 +216,10 @@ Whenever changes are made to the GitHub repository, Jenkins will:
 ---
 ![Jenkins Job Build](img/image6.png)  
 *Image showing the Jenkins job detail*
+
+![Docker Image change](img/image7.png)  
+*Image showing the Image change*
+
 ## Conclusion
 
 This setup successfully implements **CI/CD** using **Jenkins**, **Docker**, and **GitHub webhooks**, allowing for automatic deployment of new changes to the Docker container. The use of **ngrok** ensures the webhook can reach the private VM's Jenkins server without needing to expose it directly to the internet.
