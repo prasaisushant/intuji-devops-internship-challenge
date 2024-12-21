@@ -1,4 +1,4 @@
-# php-hello-world 4
+# php-hello-world 5
 A simple hello-world for composer
 
  [![Latest Stable Version](https://github.com/silarhi/php-hello-world/workflows/Tests/badge.svg)](https://github.com/silarhi/php-hello-world/workflows/Tests/badge.svg)
