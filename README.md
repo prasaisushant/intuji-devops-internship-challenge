@@ -194,7 +194,7 @@ In Jenkins, a new **Freestyle Project** was created, named **CI_CD**. The follow
 
 ### 7. Build Step Configuration
 
-In the build step, **Execute Shell** was chosen. A new bash script (`cd.sh`) was added to the GitHub repository. This script builds a new image, removes the previous container, runs the new container, and pushes the image to Docker Hub. Since pipeline item type would be more appropriate for CI/CD using Jenkins but since the task explicitly mention to use Freestyle item type bash script was used.
+In the build step, Execute Shell was chosen. A new bash script (cd.sh) was added to the GitHub repository. This script builds a new image, removes the previous container, runs the new container, and pushes the image to Docker Hub. While a Pipeline item type would be more appropriate for CI/CD using Jenkins, the task explicitly mentioned using the Freestyle item type, so a bash script was used instead. Since the number of executors on the built-in node is set to 0, all tasks will run on the agent node. Moreover, since there is only one agent node where the container is being deployed, we can proceed with this setup.
 
 The following code was added in Jenkins' **Execute Shell** section:
 
