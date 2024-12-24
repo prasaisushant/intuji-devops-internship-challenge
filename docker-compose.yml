@@ -1,6 +1,6 @@
 services:
   app:
-    image: sushant60/intuji_image:v1  # Make sure this is the correct image
+    image: sushant60/intuji_image:v1 
     container_name: Intuji
     ports:
       - "8888:80"
